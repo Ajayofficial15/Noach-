@@ -1,0 +1,7 @@
+# Robots.txt for NOACH Transport Services
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://noachtransport.vercel.app/sitemap.xml
+Sitemap: https://ajayofficial15.github.io/Noach-/sitemap.xml
