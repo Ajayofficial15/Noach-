@@ -1,0 +1,19 @@
+{
+  "name": "noach-transport-services",
+  "version": "1.0.0",
+  "description": "NOACH Transport Services — Fleet Management and Goods Transportation Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "transportation",
+    "fleet-management",
+    "logistics",
+    "freight",
+    "cargo"
+  ],
+  "author": "NOACH Transport Services",
+  "license": "ISC"
+}

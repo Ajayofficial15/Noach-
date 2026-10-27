@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" fill="none">
+  <!-- Brand Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Base Hexagonal Shield -->
+    <path d="M40 0 L75 20 L75 60 L40 80 L5 60 L5 20 Z" fill="#3F2A24" />
+    <path d="M40 4 L71 22 L71 58 L40 76 L9 58 L9 22 Z" fill="#7A5947" opacity="0.3" />
+    
+    <!-- Stylized 'N' & Freight Motion Lines -->
+    <path d="M22 62 L22 22 L32 22 L52 54 L52 22 L60 22 L60 62 L50 62 L30 30 L30 62 Z" fill="#F2EADF" />
+    
+    <!-- Forward Logistics Arrow Accent -->
+    <polygon points="56,38 68,38 62,30" fill="#C2A692" />
+    <circle cx="26" cy="26" r="3" fill="#C2A692" />
+    
+    <!-- Underline Road Track -->
+    <rect x="18" y="68" width="44" height="3" rx="1.5" fill="#C2A692" />
+    <rect x="32" y="68" width="16" height="3" rx="1.5" fill="#F2EADF" />
+  </g>
+  
+  <!-- Typography -->
+  <!-- Main Title: NOACH -->
+  <text x="105" y="52" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="38" letter-spacing="4" fill="#3F2A24">
+    NOACH
+  </text>
+  
+  <!-- Subtitle: TRANSPORT SERVICES -->
+  <text x="106" y="74" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="12" letter-spacing="3.2" fill="#7A5947">
+    TRANSPORT SERVICES
+  </text>
+  
+  <!-- Subtle Tagline Indicator -->
+  <rect x="290" y="66" width="30" height="2" fill="#C2A692" />
+  <circle cx="328" cy="67" r="2.5" fill="#7A5947" />
+</svg>

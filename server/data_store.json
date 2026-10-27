@@ -1,0 +1,57 @@
+{
+  "requests": [
+    {
+      "id": "NOACH-2026-88412",
+      "createdAt": "2026-10-26T06:04:43.149Z",
+      "customerName": "Rajesh Sharma",
+      "mobileNumber": "+91 98201 44520",
+      "companyName": "Sharma Agro Logistics",
+      "pickupLocation": "Bhiwandi Central Warehouse Sector 4, Mumbai",
+      "deliveryLocation": "Kalyan Wholesale APMC Market Yard",
+      "vehicleType": "Open Truck",
+      "transportDate": "2026-10-28",
+      "goodsType": "Agricultural Produce (Onions & Potatoes)",
+      "loadWeight": "8.5 Metric Tons",
+      "additionalRequirements": "Requires waterproof tarpaulin cover and early morning unloading dock access.",
+      "status": "New",
+      "notes": [
+        {
+          "text": "Enquiry received via web portal. High priority for early morning trip.",
+          "time": "2026-10-26T06:06:43.149Z",
+          "author": "System Dispatch"
+        }
+      ]
+    },
+    {
+      "id": "NOACH-2026-88390",
+      "createdAt": "2026-10-26T03:46:43.149Z",
+      "customerName": "Vikram Malhotra",
+      "mobileNumber": "+91 97110 33819",
+      "companyName": "Apex Retail Distribution Ltd",
+      "pickupLocation": "Taloja MIDC Industrial Hub, Navi Mumbai",
+      "deliveryLocation": "Pune Bhosari Distribution Fulfillment Center",
+      "vehicleType": "Container Truck",
+      "transportDate": "2026-10-29",
+      "goodsType": "FMCG Packaged Goods & Consumer Electronics",
+      "loadWeight": "14 Tons (18 Pallets)",
+      "additionalRequirements": "GPS-locked closed container required. Hydraulic tailgate preferred.",
+      "status": "Contacted",
+      "notes": [
+        {
+          "text": "Spoke with customer. Checking container truck availability at Taloja hub.",
+          "time": "2026-10-26T04:46:43.149Z",
+          "author": "Operations Lead"
+        }
+      ]
+    }
+  ],
+  "staffUsers": [
+    {
+      "id": "user_admin_1",
+      "email": "admin@noach.com",
+      "passwordHash": "NoachTransport@2026",
+      "name": "Operations Dispatcher",
+      "role": "staff"
+    }
+  ]
+}
