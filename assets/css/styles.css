@@ -1762,6 +1762,12 @@ button, input, select, textarea {
   gap: 56px;
   margin-bottom: 56px;
 }
+.footer-brand img {
+  height: 44px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
 .footer-brand p {
   color: var(--noach-cream);
   font-size: 0.9375rem;
