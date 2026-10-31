@@ -74,17 +74,17 @@ Explains the end-to-end journey in four clear, progressive steps:
 ---
 
 ## 📧 Email Notification Setup (Formspree)
-Form submissions are configured to notify: **`ajaygudavalli24@gmail.com`**.
+Form submissions are configured to notify: **`noach.transportservice@gmail.com`**.
 
 To receive live submission emails in your inbox:
-1. Go to [https://formspree.io](https://formspree.io) and register a free account using **`ajaygudavalli24@gmail.com`**.
+1. Go to [https://formspree.io](https://formspree.io) and register a free account using **`noach.transportservice@gmail.com`**.
 2. Click **+ New Form**, enter a name (e.g., "NOACH Enquiries"), and copy the provided Form ID (e.g., `mrbgqovz`).
 3. Open `assets/js/form.js` and set:
    ```javascript
    const FORMSPREE_CONFIG = {
      contactEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
      vehicleEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
-     notificationEmail: 'ajaygudavalli24@gmail.com'
+     notificationEmail: 'noach.transportservice@gmail.com'
    };
    ```
 4. Submissions will automatically send complete formatted emails to your inbox.

@@ -1,8 +1,7 @@
 /**
  * NOACH Transport Services — Dual Form Controller & Live Email Dispatcher
  *
- * Configured with live Formspree endpoint: https://formspree.io/f/xqpppjla
- * Notification Target: ajaygudavalli24@gmail.com
+ * Configured with live Formspree endpoint: https://formspree.io/f/xbggzloq
  * Handles:
  * 1. Contact Us Form (#contact-form in slide-in right drawer)
  * 2. Request a Vehicle Form (#vehicle-request-form)
@@ -12,12 +11,11 @@
 
 // ============================================================================
 // EMAIL NOTIFICATION CONFIGURATION (FORMSPREE)
-// Target Notification Email: ajaygudavalli24@gmail.com
-// Live Endpoint: https://formspree.io/f/xqpppjla
+// Live Endpoint: https://formspree.io/f/xbggzloq
 // ============================================================================
 const FORMSPREE_CONFIG = {
-  endpoint: 'https://formspree.io/f/xqpppjla',
-  notificationEmail: 'ajaygudavalli24@gmail.com'
+  endpoint: 'https://formspree.io/f/xbggzloq',
+  notificationEmail: 'noach.transportservice@gmail.com'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
