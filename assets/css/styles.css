@@ -333,6 +333,18 @@ button, input, select, textarea {
   padding: 8px;
   cursor: pointer;
   color: var(--noach-espresso);
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.mobile-toggle:hover,
+.mobile-toggle:focus-visible {
+  background-color: var(--noach-cream);
+  color: var(--noach-chestnut);
+  outline: none;
 }
 
 /* Mobile Drawer */
@@ -341,15 +353,19 @@ button, input, select, textarea {
   top: 0;
   right: -100%;
   width: 85%;
-  max-width: 360px;
+  max-width: 320px;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--noach-white);
   z-index: 100;
   box-shadow: var(--shadow-xl);
   transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 .mobile-drawer.open {
   right: 0;
@@ -1855,109 +1871,465 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   RESPONSIVENESS
+   RESPONSIVENESS & MOBILE-FIRST OPTIMIZATIONS
    ========================================================================== */
-@media (max-width: 992px) {
-  .intro-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .intro-floating-card {
-    position: static;
-    margin-top: 16px;
-    max-width: 100%;
-  }
-  .intro-image-wrapper img {
-    height: 360px;
-  }
-  .request-layout {
-    grid-template-columns: 1fr;
-  }
-  .sidebar-summary-card {
-    position: static;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  .cta-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 24px;
-  }
-}
 
-@media (max-width: 768px) {
+/* 1. TABLETS & SMALL LAPTOPS (max-width: 992px) */
+@media (max-width: 992px) {
+  /* Navigation: Seamlessly transition to mobile drawer before menu links collide */
   .desktop-nav {
     display: none;
   }
   .mobile-toggle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
-  .steps-timeline::before {
-    left: 28px;
-  }
-  .step-card {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-  }
-  .step-number-circle {
-    width: 56px;
-    height: 56px;
-    font-size: 1.375rem;
-  }
-  .form-grid-2 {
+  
+  /* Home & Intro Layout */
+  .intro-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
-  .form-card {
-    padding: 24px;
+  .intro-floating-card {
+    position: static;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 100%;
   }
+  .intro-image-wrapper img {
+    height: 340px;
+  }
+
+  /* Request & Contact 2-Column Layouts to 1-Column */
+  .request-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .sidebar-summary-card {
+    position: static;
+  }
+
+  /* Footer: 2 Columns on Tablet */
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  /* CTA Banner */
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 28px;
+  }
+  .cta-banner-actions {
+    margin-top: 16px;
   }
 }
 
+/* 2. TABLET PORTRAIT & LARGE PHONES (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Header: Clean Mobile Bar (Logo on Left, Hamburger on Right) */
+  .header-wrapper {
+    height: 68px;
+  }
+  .brand-logo img {
+    height: 38px;
+  }
+  .header-actions .btn {
+    display: none; /* Hide duplicated Request a Vehicle button in header on mobile; accessible via hamburger & drawer */
+  }
+
+  /* Section Spacing */
+  .section {
+    padding: 56px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+  .section-desc {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  /* Hero Section: Typography & Badges */
+  .hero-section {
+    padding: 64px 0 72px 0;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+    line-height: 1.12;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .hero-subtitle {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .hero-pill {
+    max-width: 100%;
+    white-space: normal;
+    padding: 6px 14px;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+  .hero-pill svg {
+    flex-shrink: 0;
+  }
+  .hero-trust-badges {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 28px;
+  }
+
+  /* Service Cards: Strict Single-Column & Zero Overflow */
+  .services-detailed-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .service-detail-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .card-media img {
+    height: 220px;
+  }
+  .service-detail-body {
+    padding: 24px 20px;
+  }
+
+  /* How It Works: Steps Timeline Single-Column */
+  .steps-timeline {
+    gap: 20px;
+  }
+  .steps-timeline::before {
+    display: none; /* Remove line collision in mobile stack */
+  }
+  .step-card {
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .step-card:hover {
+    transform: none; /* Prevent horizontal displacement on touch devices */
+  }
+  .step-number-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  /* Forms: Single-Column Grid */
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  /* Contact View Sidebar Summary */
+  .sidebar-summary-card {
+    padding: 24px 20px;
+    width: 100%;
+  }
+  .promise-item {
+    gap: 12px;
+  }
+  .promise-item div div {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .promise-item a {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer: Single-Column Stack */
+  .site-footer {
+    padding: 52px 0 28px 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  .footer-brand p {
+    max-width: 100%;
+  }
+  .placeholder-item {
+    align-items: flex-start;
+  }
+  .placeholder-item .value {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-size: 0.875rem;
+  }
+  .placeholder-item .value a {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 20px;
+  }
+  .footer-disclaimer-note {
+    max-width: 100%;
+  }
+}
+
+/* 3. MOBILE GENERAL (max-width: 640px) */
+@media (max-width: 640px) {
+  /* Top Notification Bar: Clean Centered Stack */
+  .top-notice-content {
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+  .top-notice-links {
+    display: none; /* Keep top status concise on small screens */
+  }
+
+  /* Home Service Preview Grid: Single Column */
+  .services-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .service-preview-card {
+    padding: 22px 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* CTA Banner on Mobile */
+  .cta-banner {
+    padding: 32px 20px;
+    border-radius: var(--radius-lg);
+  }
+  .cta-text h3 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  .cta-text p {
+    font-size: 0.9375rem;
+  }
+  .cta-banner-actions {
+    width: 100%;
+  }
+  .cta-banner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* FAQ Section on Mobile */
+  .faq-item {
+    padding: 18px 16px !important;
+  }
+  .faq-item h3 {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+  .faq-item p {
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Contact Us Slide-in Drawer: Full-width on mobile */
+  .contact-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .drawer-tab-handle {
+    display: none !important;
+  }
+}
+
+/* 4. SMARTPHONES & COMPACT SCREENS (max-width: 480px) */
 @media (max-width: 480px) {
+  /* Container Padding Optimization */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Section Paddings */
+  .section {
+    padding: 44px 0;
+  }
+  .section-tag {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Header Branding */
+  .header-wrapper {
+    height: 64px;
+  }
+  .brand-logo img {
+    height: 36px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 48px 0 54px 0;
+  }
+  .hero-title {
+    font-size: 1.875rem;
+    line-height: 1.15;
+  }
+  .hero-subtitle {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .hero-cta-group {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
+  /* Intro Section Image */
+  .intro-image-wrapper img {
+    height: 240px;
+  }
+
+  /* Vehicle Selector Chips: Responsive Full-Width Buttons */
   .vehicle-selector-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 8px;
   }
   .vehicle-chip {
-    padding: 10px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+  .vehicle-chip-icon {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    line-height: 1;
   }
   .vehicle-chip-title {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
   }
+
+  /* Form Cards & Inputs */
   .form-card {
     padding: 20px 16px;
     border-radius: var(--radius-lg);
   }
-  .sidebar-summary-card {
-    padding: 24px 18px;
-    border-radius: var(--radius-lg);
+  .form-header-bar {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
   }
-  .hero-title {
-    font-size: 2.125rem;
-    line-height: 1.15;
-  }
-  .hero-cta-group {
-    width: 100%;
-  }
-  .hero-cta-group .btn {
-    width: 100%;
-    justify-content: center;
-  }
-  .section {
-    padding: 48px 0;
-  }
-  .modal-dialog {
-    padding: 28px 20px;
-    margin: 16px;
-    width: calc(100% - 32px);
+  .form-header-bar h2 {
+    font-size: 1.25rem;
   }
   .form-input, .form-select, .form-textarea {
+    font-size: 16px; /* Prevents auto-zoom in Safari iOS */
+    padding: 12px 14px;
+  }
+  .btn-block {
+    min-height: 48px;
+  }
+
+  /* Sidebar Summary Card */
+  .sidebar-summary-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .sidebar-summary-card h3 {
+    font-size: 1.125rem;
+  }
+
+  /* Modals */
+  .modal-dialog {
+    padding: 28px 18px;
+    margin: 12px;
+    width: calc(100% - 24px);
+  }
+  .modal-title {
+    font-size: 1.375rem;
+  }
+  .modal-message {
+    font-size: 0.9375rem;
+    padding: 12px;
+  }
+
+  /* Slide-in Contact Drawer */
+  .contact-drawer-inner {
+    padding: 20px 16px 28px 16px;
+  }
+  .contact-drawer-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .contact-drawer-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+  }
+  .drawer-input {
     font-size: 16px;
+    padding: 12px 14px;
+  }
+  .drawer-submit-btn {
+    min-height: 48px;
+    padding: 14px 18px;
+  }
+}
+
+/* 5. ULTRA-COMPACT SCREENS (max-width: 360px) */
+@media (max-width: 360px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .brand-logo img {
+    height: 33px;
+  }
+  .hero-title {
+    font-size: 1.625rem;
+    line-height: 1.15;
+  }
+  .hero-pill {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  .form-card,
+  .sidebar-summary-card,
+  .service-detail-body,
+  .service-preview-card,
+  .step-card {
+    padding: 16px 12px;
+  }
+  .contact-drawer-inner {
+    padding: 18px 12px 24px 12px;
   }
 }
 
@@ -2195,24 +2567,5 @@ button, input, select, textarea {
   text-align: center;
   line-height: 1.45;
   margin-top: 6px;
-}
-
-@media (max-width: 480px) {
-  .contact-drawer {
-    width: 100%;
-  }
-  .contact-drawer-inner {
-    padding: 24px 20px 32px 20px;
-  }
-  .drawer-tab-handle {
-    display: none;
-  }
-  .drawer-input {
-    font-size: 16px;
-    padding: 14px 16px;
-  }
-  .drawer-submit-btn {
-    padding: 16px 20px;
-  }
 }
 
